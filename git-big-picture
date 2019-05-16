@@ -620,10 +620,10 @@ class Git(object):
                 # determine object type and to respective dict
                 obj_type = self('git cat-file -t %s' % sha1)[0]
                 if obj_type in ['blob', 'tree']:
-                    add_to_dict(nctags, sha1, name.replace(tag_prefix, ''))
+                    add_to_dict(nctags, sha1, name.replace(tag_prefix, 'tags/'))
                 else:
-                    add_to_dict(ctags, sha1, name.replace(tag_prefix, ''))
-                add_to_dict(tags, sha1, name.replace(tag_prefix, ''))
+                    add_to_dict(ctags, sha1, name.replace(tag_prefix, 'tags/'))
+                add_to_dict(tags, sha1, name.replace(tag_prefix, 'tags/'))
 
         return (lbranches, rbranches, abranches), (tags, ctags, nctags)
 
